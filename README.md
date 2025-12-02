@@ -34,6 +34,8 @@ MemorEyes/
 └── .gitignore            # Git ignore rules
 ```
 
+Additional architecture and roadmap details live in [`docs/system_overview.md`](docs/system_overview.md).
+
 ## Setup Instructions
 
 ### 1. Create and activate a virtual environment
