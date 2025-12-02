@@ -1,0 +1,23 @@
+fastapi==0.110.0
+uvicorn[standard]==0.30.0
+pydantic==2.7.0
+numpy
+opencv-python
+python-multipart
+
+# face detection + embeddings
+insightface==0.7.3
+onnxruntime
+
+# ANN search
+faiss-cpu
+hnswlib
+
+# audio/VAD/ASR
+webrtcvad
+whisper-timestamped
+sounddevice
+
+# utilities
+pillow
+python-dotenv

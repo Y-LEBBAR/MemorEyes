@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Model files or large assets
+models/
+checkpoints/
+*.onnx
+*.pth
+
+# Data (optional — avoid pushing personal images/video)
+data/
+*.jpg
+*.png
+*.mp4
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Uvicorn reload artifacts
+*.reload
