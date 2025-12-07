@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: memoreyes
+Version: 0.1.0
+Summary: MemorEyes Core Package
+Author: Yannis Lebbar
+License: Proprietary
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: pillow
+Requires-Dist: faiss-cpu
+Requires-Dist: sqlalchemy
+Requires-Dist: pydantic

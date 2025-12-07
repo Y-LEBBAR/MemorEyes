@@ -1,0 +1,6 @@
+app
+core
+data
+docs
+models
+tests

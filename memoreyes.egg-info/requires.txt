@@ -1,0 +1,7 @@
+numpy
+fastapi
+uvicorn
+pillow
+faiss-cpu
+sqlalchemy
+pydantic

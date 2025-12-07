@@ -21,3 +21,6 @@ sounddevice
 # utilities
 pillow
 python-dotenv
+
+
+pytest
