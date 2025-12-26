@@ -78,3 +78,4 @@ def start_asr_background(transcript_lines: List[str]) -> threading.Event:
     t = threading.Thread(target=worker, daemon=True)
     t.start()
     return stop_event
+
