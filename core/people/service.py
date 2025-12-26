@@ -18,6 +18,9 @@ from sqlalchemy.orm import Session
 
 from core.people.models import Person, FaceSample
 
+from typing import Any, Dict, Union
+from core.db import get_session
+
 
 # ---------------------------------------------------------------------------
 # Embedding serialization helpers
@@ -170,3 +173,44 @@ def find_best_match(
         return None, best_dist
 
     return best_person, best_dist
+
+def get_person_facts(person_key: Union[int, str]) -> Dict[str, Any]:
+    """
+    Return lightweight facts about a person for UI display.
+
+    person_key:
+        - usually a Person.id (int / str)
+
+    Returns a dict such as:
+        {
+            "exists": True/False,
+            "id": ...,
+            "name": ...,
+            "created_at": ...,
+            "last_seen_at": ...,
+            "episode_count": 0,   # TODO: wire to Episode when ready
+            "notes": "",
+        }
+    """
+    with get_session() as db:
+        # Try by primary key
+        person = db.get(Person, person_key)  # type: ignore[arg-type]
+
+        if person is None:
+            return {
+                "exists": False,
+                "name": str(person_key),
+                "episode_count": 0,
+                "notes": "",
+            }
+
+        facts: Dict[str, Any] = {
+            "exists": True,
+            "id": person.id,
+            "name": getattr(person, "display_name", None) or str(person.id),
+            "created_at": getattr(person, "created_at", None),
+            "last_seen_at": getattr(person, "last_seen_at", None),
+            "episode_count": 0,   # TODO: compute once Episodes are wired
+            "notes": getattr(person, "notes", "") or "",
+        }
+        return facts
